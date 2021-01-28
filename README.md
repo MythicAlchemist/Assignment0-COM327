@@ -12,17 +12,22 @@ A series of steps to clone the code.
 
 Step 1:
 Make sure you are on the machine that has either the VM VirtualBox or the pyrite provided by ISU.
+You can also use Cygwin, just make sure you have the gcc package.
 
 Step 2:
-Clone the Repoository.
-*If you are using a VM make sure that you clone the repository in the VM and not your windows machine.
-
+Download Github Desktop and setup with a personal access token.
+ - This makes pushing, cloning, and pulling increadible easy. 
+ - You might still need git bash not sure. 
+ 
 Step 3:
+Clone the Repoository.
+
+Step 4:
 If you did everything correctly, you should be able to see the updated files for Assignment 0.
 
 ## Running the tests
 
-Simple compile the program using gcc -Wall file_name.c -o filename and run using ./filename
+Simple compile the program using gcc -Wall assignment0.c -o assingment and run using ./assignment0
 
 ## Authors
 
