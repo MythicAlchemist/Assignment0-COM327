@@ -10,6 +10,8 @@
 //Function Headers
 void check_sand(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
 void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
+void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
+int helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
 
 //Main
 int main(int argc, char *argv[])
@@ -72,7 +74,7 @@ int helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE]) {
       pileArr[j][i] += 1;
     }
   }
-  return ;
+  return 0;
 }
 
 //Function prints the map of sand piles
