@@ -8,9 +8,8 @@
 #define ARRAY_SIZE 23
 
 //Function Headers
-void check_sand(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
 void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
-void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
+void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j);
 int helper(int **pileArr, int i, int j);
 
 //Main
@@ -21,7 +20,7 @@ int main(int argc, char *argv[])
   while(1)
   {
     pileArr[ARRAY_SIZE / 2][ARRAY_SIZE / 2] += 1;
-    check_sand(pileArr);
+    rec_check(pileArr, ARRAY_SIZE / 2, ARRAY_SIZE / 2);
     print_map(pileArr);
   }
   
@@ -47,18 +46,15 @@ void check_sand(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
 }
 */
 // Recursive
-void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE]) 
+void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j) 
 {
-  int j, i;
+  int m, n;
 
-  for (j = 0; j < 3; j++) {
-    for (i = 0; i < 3; i++) {
-      if (!(i == 2 && j == 2)) {
-        if (pileArr[j][i] < 9) {
-          break;
-        } 
-        else {
-          rec_check(helper(pileArr[ARRAY_SIZE][ARRAY_SIZE], i, j));
+  for (m = -1; m <= 1; m++) {
+    for (n = -1; n <= 1; n++) {
+      if (!(n == 0 && m == 0)) {
+        if (pileArr[m + j][n + i] > 8) {
+          rec_check(helper(pileArr[ARRAY_SIZE][ARRAY_SIZE], (n + i), (m + j)), (n + i), (m + j));
         }
       }
     }
@@ -66,13 +62,17 @@ void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
 }
 
 // Helper
-int helper(int **pileArr, int i, int j) {
-  
-  for (j = 0; j < 3; j++) {
-    for (i = 0; i < 3; i++) {
-      pileArr[j][i] += 1;
+int helper(int **pileArr, int i, int j) 
+{
+  int m, n;
+
+  for (m = -1; m <= 1; m++) {
+    for (n = -1; n <= 1; n++) {
+      pileArr[m + j][n + i] += 1;
     }
   }
+  pileArr[i][j] = 1;
+
   return 0;
 }
 
