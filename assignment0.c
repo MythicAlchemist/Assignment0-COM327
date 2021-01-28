@@ -10,7 +10,7 @@
 //Function Headers
 void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
 void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j);
-int helper(int **pileArr, int i, int j);
+int *helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j);
 
 //Main
 int main(int argc, char *argv[])
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
   for(i = 0; i < ARRAY_SIZE / 2; i++) {
     for(j = 0; j < ARRAY_SIZE / 2; j++) {
-      pileArr[i][j];
+      pileArr[i][j] = 0;
     }
   }
   
@@ -59,7 +59,7 @@ void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j)
 
   for (m = -1; m <= 1; m++) {
     for (n = -1; n <= 1; n++) {
-      if (!(n == 0 && m == 0)) {
+      // if (!(n == 0 && m == 0)) {
         if (pileArr[m + j][n + i] > 8) {
           rec_check(helper(pileArr[ARRAY_SIZE][ARRAY_SIZE], (n + i), (m + j)), (n + i), (m + j));
         }
@@ -69,13 +69,13 @@ void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j)
 }
 
 // Helper
-int helper(int **pileArr, int i, int j) 
+int *helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j) 
 {
   int m, n;
 
   for (m = -1; m <= 1; m++) {
     for (n = -1; n <= 1; n++) {
-      pileArr[m + j][n + i] += 1;
+      pileArr[m + j][n + i] += 1; // Seg fault
     }
   }
   pileArr[i][j] = 1;
@@ -90,8 +90,9 @@ void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
 
   for(j = 0; j < ARRAY_SIZE; j++){
     for(i = 0; i < ARRAY_SIZE; i++){
-      printf("%1d ", pileArr[j][i]);
+      printf("%4d ", pileArr[j][i]);
     }
     printf("\n");
   }
+  printf("----------------\n");
 }
