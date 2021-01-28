@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define ARRAY_SIZE = 23;
+#define ARRAY_SIZE 23
 
 //Function Headers
 void check_sand(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
   int pileArr[ARRAY_SIZE][ARRAY_SIZE];
   
-  while(true do)
+  while(1)
   {
   check_sand(pileArr);
   print_map(pileArr);
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 //Function checks and topples piles of sand
 void check_sand(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
 {
-  while(true do){
+  while(1){
     
   }
     
@@ -39,10 +39,9 @@ void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
 
   for(j = 0; j < 10; j++){
     for(i = 0; i < 10; i++){
-      printf("%d ", table[j][i]);
+      printf("%d ", pileArr[j][i]);
     }
     printf("\n");
   }
- 
   
 }
