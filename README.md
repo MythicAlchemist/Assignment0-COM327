@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-A step by step series of examples that tell you how to get our game running.
+A series of steps to clone the code.
 
 Step 1:
 Make sure you are on the machine that has either the VM VirtualBox or the pyrite provided by ISU.
