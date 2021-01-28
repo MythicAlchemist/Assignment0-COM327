@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define ARRAY_SIZE 23
+#define ARRAY_SIZE 5
 
 //Function Headers
 void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
@@ -16,6 +16,13 @@ int helper(int **pileArr, int i, int j);
 int main(int argc, char *argv[])
 {
   int pileArr[ARRAY_SIZE][ARRAY_SIZE];
+  int i, j;
+
+  for(i = 0; i < ARRAY_SIZE / 2; i++) {
+    for(j = 0; j < ARRAY_SIZE / 2; j++) {
+      pileArr[i][j];
+    }
+  }
   
   while(1)
   {
