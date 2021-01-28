@@ -11,8 +11,10 @@ These instructions will get you a copy of the project up and running on your loc
 A series of steps to clone the code.
 
 Step 1:
-Make sure you are on the machine that has either the VM VirtualBox or the pyrite provided by ISU.
-You can also use Cygwin, just make sure you have the gcc package.
+Accessing a shell
+ - VM VirtualBox 
+ - Pyrite
+ - Cygwin - make sure gcc is included
 
 Step 2:
 Download Github Desktop and setup with a personal access token.
@@ -21,9 +23,11 @@ Download Github Desktop and setup with a personal access token.
  
 Step 3:
 Clone the Repoository.
+ - Straightforward if you have Github desktop
 
 Step 4:
-If you did everything correctly, you should be able to see the updated files for Assignment 0.
+Final
+ - If you did everything correctly, you should be able to see the updated files for Assignment 0.
 
 ## Running the tests
 
