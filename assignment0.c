@@ -11,7 +11,7 @@
 void check_sand(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
 void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
 void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
-int helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
+int helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j);
 
 //Main
 int main(int argc, char *argv[])
@@ -58,7 +58,7 @@ void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
           break;
         } 
         else {
-          rec_check(helper(pileArr[j][i]));
+          rec_check(helper(pileArr[ARRAY_SIZE][ARRAY_SIZE], i, j));
         }
       }
     }
@@ -66,8 +66,7 @@ void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
 }
 
 // Helper
-int helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE]) {
-  int j, i;
+int helper(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j) {
   
   for (j = 0; j < 3; j++) {
     for (i = 0; i < 3; i++) {
