@@ -59,11 +59,9 @@ void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j)
 
   for (m = -1; m <= 1; m++) {
     for (n = -1; n <= 1; n++) {
-      // if (!(n == 0 && m == 0)) {
         if (pileArr[m + j][n + i] > 8) {
           rec_check(helper(pileArr[ARRAY_SIZE][ARRAY_SIZE], (n + i), (m + j)), (n + i), (m + j));
         }
-      }
     }
   }
 }
