@@ -81,9 +81,9 @@ void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
 {
   int i, j;
 
-  for(j = 0; j < 10; j++){
-    for(i = 0; i < 10; i++){
-      printf("%d ", pileArr[j][i]);
+  for(j = 0; j < ARRAY_SIZE; j++){
+    for(i = 0; i < ARRAY_SIZE; i++){
+      printf("%1d ", pileArr[j][i]);
     }
     printf("\n");
   }
