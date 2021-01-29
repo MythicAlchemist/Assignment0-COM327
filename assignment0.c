@@ -4,87 +4,73 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdbool.h>
 
-#define ARRAY_SIZE 23
+#define ARRAY_SIZE 5
 
 //Function Headers
-void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE]);
-void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j);
-int helper(int **pileArr, int i, int j);
+void print_map(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE]);
+void rec_check(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row);
+void helper(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row);
 
 //Main
 int main(int argc, char *argv[])
 {
-  int pileArr[ARRAY_SIZE][ARRAY_SIZE];
-  
-  while(1)
-  {
-    pileArr[ARRAY_SIZE / 2][ARRAY_SIZE / 2] += 1;
-    rec_check(pileArr, ARRAY_SIZE / 2, ARRAY_SIZE / 2);
-    print_map(pileArr);
+  int pileArr[ARRAY_SIZE][ARRAY_SIZE]; 
+  for(int i = 0; i < ARRAY_SIZE; i++){
+    for(int j = 0; j < ARRAY_SIZE; j++){
+      pileArr[i][j] = 0;
+    }
   }
-  
+  while(true){
+    pileArr[ARRAY_SIZE / 2][ARRAY_SIZE / 2] += 1;
+    rec_check((&pileArr), ARRAY_SIZE / 2, ARRAY_SIZE / 2);
+    print_map(&pileArr);
+  }
   return 0;
 }
-/*
-//Function checks and topples piles of sand
-void check_sand(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
-{
-  int i, j, l, m;
-  
-  while(1){
-    for(j = 0; j < ARRAY_SIZE; j++) {
-      for (i = 0; i < ARRAY_SIZE; i++) {
-        if(pileArr[j][i] > 8) {
-          for(l = j - 1; l <= 1; l++)
-            pileArr[j][i] = 1;
-        }
-      }
-    }
-    
-  }
-}
-*/
-// Recursive
-void rec_check(int pileArr[ARRAY_SIZE][ARRAY_SIZE], int i, int j) 
-{
-  int m, n;
 
-  for (m = -1; m <= 1; m++) {
-    for (n = -1; n <= 1; n++) {
-      if (!(n == 0 && m == 0)) {
-        if (pileArr[m + j][n + i] > 8) {
-          rec_check(helper(pileArr[ARRAY_SIZE][ARRAY_SIZE], (n + i), (m + j)), (n + i), (m + j));
-        }
+// Recursive
+void rec_check(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row) 
+{
+  int j, i;
+
+  for (j = -1; j <= 1; j++) {
+    for (i = -1; i <= 1; i++) {
+      if ((*pileArr)[j + col][i + row] > 8) {
+        rec_check((pileArr), (j + col), (i + row));
       }
     }
   }
+   helper((pileArr), j, i);
+   (*pileArr)[col][row] = 1;
 }
 
 // Helper
-int helper(int **pileArr, int i, int j) 
+void helper(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row)
 {
-  int m, n;
-
-  for (m = -1; m <= 1; m++) {
-    for (n = -1; n <= 1; n++) {
-      pileArr[m + j][n + i] += 1;
+  int j, i;
+  
+  for (j = -1; j <= 1; j++) {
+    for (i = -1; i <= 1; i++) {
+      if(!((j + col) < 0 || (j + col) > ARRAY_SIZE || (i + row) < 0 || (i + row) > ARRAY_SIZE)){
+	printf("%d \n", *pileArr[1][2]);
+	*pileArr[col + j][row + i] += 1;
+      }
     }
   }
-  pileArr[i][j] = 1;
-
-  return 0;
 }
 
 //Function prints the map of sand piles
-void print_map(int pileArr[ARRAY_SIZE][ARRAY_SIZE])
+void print_map(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE])
 {
-  int i, j;
+  int j, i;
 
-  for(j = 0; j < 10; j++){
-    for(i = 0; i < 10; i++){
-      printf("%d ", pileArr[j][i]);
+  for(j = 0; j < ARRAY_SIZE; j++){
+    for(i = 0; i < ARRAY_SIZE; i++){
+      printf("%1d ", (*pileArr)[j][i]);
     }
     printf("\n");
   }
+  printf("\n");
 }
