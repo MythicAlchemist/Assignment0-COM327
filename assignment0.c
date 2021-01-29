@@ -9,6 +9,7 @@
 #define ARRAY_SIZE 5
 
 //Function Headers
+
 void print_map(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE]);
 void rec_check(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row);
 void helper(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row);
