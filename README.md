@@ -1,6 +1,6 @@
 # Assignment 0 
 
-COM 327 - Advanced Programming @ Iowa State University - Assignment 0.
+COM 327 - Advanced Programming @ Iowa State University - Assignment 0 - Sandpiles.
 
 ## Getting Started
 
@@ -14,7 +14,7 @@ Step 1:
 Accessing a shell
  - VM VirtualBox 
  - Pyrite
- - Cygwin - make sure gcc is included
+ - Cygwin - make sure gcc and other relevant packages are included
 
 Step 2:
 Download Github Desktop and setup with a personal access token.
@@ -22,7 +22,7 @@ Download Github Desktop and setup with a personal access token.
  - You might still need git bash not sure. 
  
 Step 3:
-Clone the Repoository.
+Clone the Repository.
  - Straightforward if you have Github desktop
 
 Step 4:
@@ -31,12 +31,12 @@ Final
 
 ## Running the tests
 
-Simple compile the program using gcc -Wall assignment0.c -o assingment and run using ./assignment0
+Simply compile the program using gcc -Wall assignment0.c -o assingment and run using ./assignment0
 
 ## Authors
 
-* **Thomas McCoy** - *Code development* - [MythicAlchemist](https://github.com/MythicAlchemist)
-* **Jens Rasmussen** - *Code development* - [JensRas](https://github.com/JensRas)
+* **Thomas McCoy** - *Code development* - [MythicAlchemist](https://github.com/MythicAlchemist) - NET_ID: tmccoy1@iastate.edu
+* **Jens Rasmussen** - *Code development* - [JensRas](https://github.com/JensRas) - NET_ID: jensr@iastate.edu
 
 ## Acknowledgments
 
