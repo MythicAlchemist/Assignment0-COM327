@@ -7,8 +7,13 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define ARRAY_SIZE 5
+#define ARRAY_SIZE 23
 #define DEFAULT_FPS 20
+
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 
 //Function Headers
 void print_map(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE]);
@@ -51,7 +56,6 @@ int main(int argc, char *argv[])
     rec_check((&pileArr), ARRAY_SIZE / 2, ARRAY_SIZE / 2);
     print_map((&pileArr));
     usleep(1000000 / fps);
-    printf("%d fps \n", fps);
   }
   return 0;
 }
@@ -63,9 +67,11 @@ void rec_check(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row)
 
   for (j = -1; j <= 1; j++) {
     for (i = -1; i <= 1; i++) {
-      if ((*pileArr)[j + col][i + row] > 8) {
-        helper((&pileArr), j + col, i + row);
-        rec_check((pileArr), (j + col), (i + row));  
+      if(!((j + col) < 0 || (j + col) >= ARRAY_SIZE || (i + row) < 0 || (i + row) >= ARRAY_SIZE)){//Checks for "edge cases"
+        if ((*pileArr)[j + col][i + row] > 8) {
+          helper((&pileArr), (j + col), (i + row));
+          rec_check((pileArr), (j + col), (i + row));  
+        }
       }
     }
   }
@@ -78,12 +84,12 @@ void helper(int (**pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row)
   
   for (j = -1; j <= 1; j++) {
     for (i = -1; i <= 1; i++) {
-      if(!((j + col) < 0 || (j + col) > ARRAY_SIZE || (i + row) < 0 || (i + row) > ARRAY_SIZE || (**pileArr)[col + j][row + i] == -1)){ //Checks "edge cases"
+      if(!((j + col) < 0 || (j + col) >= ARRAY_SIZE || (i + row) < 0 || (i + row) >= ARRAY_SIZE || (**pileArr)[col + j][row + i] == -1 || (j == 0 && i == 0))){ //Checks "edge cases"
 	      (**pileArr)[col + j][row + i] += 1;
       }
     }
   }
-  (**pileArr)[col][row] -= 9;
+  (**pileArr)[col][row] -= 8;
 }
 
 //Function prints the map of sand piles
@@ -97,7 +103,18 @@ void print_map(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE])
         printf("# ");
       }
       else{
-        printf("%1d ", (*pileArr)[j][i]);
+        if((*pileArr)[j][i] == 0){
+          printf("%1d ", (*pileArr)[j][i]);
+        }
+        else if((*pileArr)[j][i] >= 1 && (*pileArr)[j][i] <= 3){
+          printf(ANSI_COLOR_GREEN "%1d " ANSI_COLOR_RESET, (*pileArr)[j][i]);
+        }
+        else if((*pileArr)[j][i] >= 4 && (*pileArr)[j][i] <= 7){
+          printf(ANSI_COLOR_YELLOW "%1d " ANSI_COLOR_RESET, (*pileArr)[j][i]);
+        }
+        else{
+          printf(ANSI_COLOR_RED  "%1d " ANSI_COLOR_RESET, (*pileArr)[j][i]);
+        }
       }
     }
     printf("\n");
