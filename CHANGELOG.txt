@@ -1,0 +1,7 @@
+1/28/2021 12:33 PM TOM: Started assignment, created arrays, printing sandpile
+1/28/2021 4:33 PM JCR TOM: Started recursive checking of sandpiles and helper method, lots of bugs and fixes
+1/28/2021 9:00 PM TOM: Fixed pointer errors causing segmentation faults
+2/2/2021 5:30 PM JCR TOM: Made changes to recursive (fixed) and got the checks working
+2/3/2021 1:03 PM TOM: Added fps, sinks, salts
+2/4/2021 12:30 PM TOM: Fixed recursive bound checking, added color
+2/4/2021 1:15 JCR TOM: Tested code, created CHANGELOG and README
