@@ -1,3 +1,6 @@
+Thomas McCoy - NET_ID: tmccoy1@iastate.edu
+Jens Rasmussen - NET_ID: jensr@iastate.edu
+
 # Assignment 0 
 
 COM 327 - Advanced Programming @ Iowa State University - Assignment 0 - Sandpiles.
