@@ -34,15 +34,19 @@ int main(int argc, char *argv[])
   //Checks what the fps should be
   if(argv[1] != NULL && !strcmp(argv[1], "--fps")){
     fps = atoi(argv[2]);
-    k = 3;
+    k = 3; //Argument offset
   }
   else{
     fps = DEFAULT_FPS;
-    k = 1;
+    k = 1; //Argument offset
   }
   //Checks argv values for salt or sinks
   for(k; k < argc - 2;){
-    if(atoi(argv[k + 2]) != -1){
+    if(atoi(argv[k + 2]) > 8 || (atoi(argv[k]) == ARRAY_SIZE / 2 && atoi(argv[k + 1]) == ARRAY_SIZE / 2)){
+      printf("ERROR: Incorrect input!");
+      return -1;
+    }
+    else if(atoi(argv[k + 2]) != -1){
       pileArr[atoi(argv[k])][atoi(argv[k + 1])] = atoi(argv[k + 2]);
     }
     else{
@@ -50,7 +54,7 @@ int main(int argc, char *argv[])
     }
     k += 3;
   }
-  //Loop that controlls the simulation
+  //Loop that controls the simulation
   while(true){
     (pileArr)[ARRAY_SIZE / 2][ARRAY_SIZE / 2] += 1;
     rec_check((&pileArr), ARRAY_SIZE / 2, ARRAY_SIZE / 2);
@@ -67,7 +71,7 @@ void rec_check(int (*pileArr)[ARRAY_SIZE][ARRAY_SIZE], int col, int row)
 
   for (j = -1; j <= 1; j++) {
     for (i = -1; i <= 1; i++) {
-      if(!((j + col) < 0 || (j + col) >= ARRAY_SIZE || (i + row) < 0 || (i + row) >= ARRAY_SIZE)){//Checks for "edge cases"
+      if(!((j + col) < 0 || (j + col) >= ARRAY_SIZE || (i + row) < 0 || (i + row) >= ARRAY_SIZE)){ //Checks for "edge cases"
         if ((*pileArr)[j + col][i + row] > 8) {
           helper((&pileArr), (j + col), (i + row));
           rec_check((pileArr), (j + col), (i + row));  
