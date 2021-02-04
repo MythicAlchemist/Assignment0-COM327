@@ -1,5 +1,5 @@
-Thomas McCoy - NET_ID: tmccoy1@iastate.edu
-Jens Rasmussen - NET_ID: jensr@iastate.edu
+* Thomas McCoy - NET_ID: tmccoy1@iastate.edu
+* Jens Rasmussen - NET_ID: jensr@iastate.edu
 
 # Assignment 0 
 
