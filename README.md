@@ -2,6 +2,8 @@
 
 COM 327 - Advanced Programming @ Iowa State University - Assignment 0 - Sandpiles.
 
+This solution uses a recursive solution to first check the middle sandpile - if that sandpile tumbles then it checks 3x3 area around that pile for any other piles that are too tall. If there are, those piles are also tumbled and the 3x3 area around each of those piles are checked. 
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
