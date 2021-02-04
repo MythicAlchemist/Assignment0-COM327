@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
   int pileArr[ARRAY_SIZE][ARRAY_SIZE];
   int i, j, k, fps;
   //Makes sure that all values in array are in fact 0
-  for(int i = 0; i < ARRAY_SIZE; i++){
-    for(int j = 0; j < ARRAY_SIZE; j++){
+  for(i = 0; i < ARRAY_SIZE; i++){
+    for(j = 0; j < ARRAY_SIZE; j++){
       pileArr[i][j] = 0;
     }
   }
