@@ -13,10 +13,10 @@ These instructions will get you a copy of the project up and running on your loc
 A series of steps to clone the code.
 
 Step 1:
-Accessing a shell
- - VM VirtualBox 
- - Pyrite
- - Cygwin - make sure gcc and other relevant packages are included
+Accessing a shell.
+ - VM VirtualBox. 
+ - Pyrite.
+ - Cygwin - make sure gcc and other relevant packages are included.
 
 Step 2:
 Download Github Desktop and setup with a personal access token.
@@ -25,17 +25,17 @@ Download Github Desktop and setup with a personal access token.
  
 Step 3:
 Clone the Repository.
- - Straightforward if you have Github desktop
+ - Straightforward if you have Github desktop.
 
 Step 4:
-Final
+Final.
  - If you did everything correctly, you should be able to see the updated files for Assignment 0.
 
 ## Running the tests
 
-Simply compile the program using gcc -Wall assignment0.c -o assingment and run using ./assignment0
+Simply compile the program using gcc -Wall assignment0.c -o assingment and run using ./assignment0.
 or
-Use the make file
+Use the make file.
 
 ## Authors
 
