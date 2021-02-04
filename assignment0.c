@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     k = 1; //Argument offset
   }
   //Checks argv values for salt or sinks
-  for(k; k < argc - 2;){
+  while(k < argc - 2){
     if(atoi(argv[k + 2]) > 8 || (atoi(argv[k]) == ARRAY_SIZE / 2 && atoi(argv[k + 1]) == ARRAY_SIZE / 2)){
       printf("ERROR: Incorrect input!");
       return -1;
