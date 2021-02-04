@@ -34,6 +34,8 @@ Final
 ## Running the tests
 
 Simply compile the program using gcc -Wall assignment0.c -o assingment and run using ./assignment0
+or
+Use the make file
 
 ## Authors
 
